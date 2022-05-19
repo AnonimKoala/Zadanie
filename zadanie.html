@@ -7,6 +7,226 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iNBP - bankowość elektroniczna</title>
     <!-- <link rel="stylesheet" href="login.css"> -->
+    
+<style>
+        body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS';
+    background-color: #04193f;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    /* padding: 10px; */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+
+.animation,
+.login_panel {
+    border: 1px solid black;
+    width: 45%;
+    min-width: 300px;
+    min-height: 90%;
+    background-color: #394968;
+    box-shadow: 2px 2px 15px black;
+    margin: 10px 0;
+}
+
+
+.animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #424750; */
+    overflow: hidden;
+}
+
+@keyframes block_color {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.block::before {
+    content: '';
+    position: absolute;
+    top: 300px;
+    width: 300px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.15);
+    transform: skewX(45deg);
+    filter: blur(20px);
+    transform-origin: bottom;
+}
+
+
+.block {
+    position: relative;
+    transform: skewY(-15deg) translateX(50px) translateY(50px);
+    animation: block_color 2.5s linear infinite;
+}
+
+.block span {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    display: block;
+    background-color: #3e3f46;
+    transition: 0.5s;
+    z-index: var(--i);
+    animation: move 5s ease-in-out infinite;
+    animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes move {
+
+    0%,
+    100% {
+        transform: translateX(-70px);
+    }
+
+    50% {
+        transform: translateX(70px);
+    }
+}
+
+.block span:hover {
+    background-color: #33a3ee;
+    transition: 0s;
+}
+
+.block span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150px;
+    height: 100%;
+    width: 150px;
+    background-color: #2e3133;
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 0.5s;
+}
+
+.block span:hover::before {
+    background-color: #1f5378;
+    transition: 0s;
+}
+
+.block span::after {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: red;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    background-color: #35383e;
+    transition: 0.5s;
+}
+
+.block span:hover::after {
+    background-color: #2982b9;
+    transition: 0s;
+}
+
+
+header img {
+    height: 100px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+
+header h1 {
+    font-family: 'Trebuchet MS';
+    margin: 0 auto;
+    font-size: 3.2em;
+    color: rgb(0, 15, 129);
+    filter: hue-rotate(20deg);
+}
+
+.login_panel section {
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    height: 45%;
+    margin-top: 10%;
+    text-align: center;
+    display: block;
+}
+
+section>input {
+    font-size: 1.8em;
+    margin: 10px auto;
+    display: block;
+    width: 60%;
+}
+
+section h2 {
+    font-size: 2.2em;
+    color: #04193f;
+    text-shadow: 2px 2px 1px rgb(6, 48, 120);
+    /* font-weight: 100; */
+}
+
+.submit_buttons {
+    width: 60%;
+    /* border: 1px solid black; */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+section button {
+    width: 100%;
+    height: 2em;
+    font-size: 1.4em;
+    display: block;
+    background-color: #04193f;
+    color: #8eadeb;
+    /* filter: hue-rotate(50deg); */
+
+}
+@keyframes color_button {
+    0%,100%{
+        filter: hue-rotate(0deg);
+    }
+    50%{
+        filter: hue-rotate(120deg);
+    }
+}
+
+section button:hover{
+    animation: color_button 3s linear infinite;
+}
+
+
+.submit_buttons p {
+    color: #8eadeb;
+}
+
+a{text-decoration: none;display: block;}
+    
+</style>
 </head>
 
 <body onload="alert('Hover the moving object')">
